@@ -55,7 +55,7 @@ jobs:
     # TODO: Does not support edit release: {"resource":"Release","code":"already_exists","field":"tag_name"}
     if: ${{ github.event_name == 'release' && github.event.action == 'created' }}
     needs:
-      - build-app
+      - build-pages
     runs-on: ubuntu-latest
     steps:
       - name: Download build dist app
@@ -91,7 +91,7 @@ jobs:
   check-docker-secrets:
     name: Check if docker hub registry information was set on secrets
     needs:
-      - build-app
+      - build-pages
     runs-on: ubuntu-latest
     outputs:
       is_have_secrets: ${{ steps.check_secret_job.outputs.is_have_secrets }}
