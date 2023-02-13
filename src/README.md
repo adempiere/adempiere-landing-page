@@ -5,9 +5,9 @@ icon: home
 bgImage: /background.png
 heroFullScreen: true
 projects:
-  - name: Release 3.9.4
-    desc: This is a great news for ADempiere Community
-    link: https://github.com/adempiere/adempiere/releases/tag/3.9.4
+  - name: ZK UI
+    desc: Ajax (UI) for ADempiere
+    link:  http://localhost/webui/
     icon: /assets/icon/logo.png
   - name: New UI for ADempiere
     desc: Completely created on Javascript with Vue

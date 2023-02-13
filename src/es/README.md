@@ -5,9 +5,9 @@ icon: home
 bgImage: /es/background.png
 heroFullScreen: true
 projects:
-  - name: Liberación 3.9.4
-    desc: Ésta es una gran noticia para la Comunidad de ADempiere
-    link: https://github.com/adempiere/adempiere/releases/tag/3.9.4
+  - name: ZK UI
+    desc: Ajax (UI) para ADempiere
+    link:  http://localhost/webui/
     icon: /assets/icon/logo.png
   - name: Nueva Interfaz de Usuario para ADempiere
     desc: Completamente creada en Javascript con Vue
