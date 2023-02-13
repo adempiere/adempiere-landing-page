@@ -4,7 +4,7 @@ LABEL	maintainer="EdwinBetanc0urt@outlook.com; ElsioSanchez15@outlook.com; ySeni
 	description="A community page VuePress with Hope theme"
 
 
-COPY build/start.sh .
+COPY build-docker/start.sh .
 COPY dist/ /usr/share/nginx/html/
 
 
