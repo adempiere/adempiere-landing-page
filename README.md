@@ -63,6 +63,8 @@ Run the docker container
 docker run -it -d \
 	--name adempiere-site \
 	-p 80:80 \
+	-e VUE_HOST="http://localhost:9526" \
+	-e ZK_HOST="http://localhost:8888" \
 	solopcloud/adempiere-site
 ```
 

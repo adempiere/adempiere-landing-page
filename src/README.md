@@ -7,11 +7,12 @@ heroFullScreen: true
 projects:
   - name: ZK UI
     desc: Ajax (UI) for ADempiere
-    link:  http://localhost/webui/
+    link: http://localhost:8888/webui/
     icon: /assets/icon/logo.png
+
   - name: New UI for ADempiere
     desc: Completely created on Javascript with Vue
-    link: https://github.com/adempiere/adempiere-vue
+    link: http://localhost:9526
     icon: /assets/img/vue-logo.png
   # - name: Discord Rooms
   #   desc: Hey we are on Discord!
