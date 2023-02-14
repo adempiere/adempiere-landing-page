@@ -37,3 +37,46 @@ info Initializing VuePress and preparing data...
   > Network:  http://172.23.0.1:8080/
   > Network:  http://172.22.0.1:8080/
 ```
+
+## Run docker container:
+
+### Minimal Docker Requirements
+To use this Docker image you must have your Docker engine version greater than or equal to 3.0.
+
+
+### Run with Docker-Compose
+Or easy run container using `docker-compose` with follow command:
+```shell
+docker compose -f build-docker/docker-compose.yaml up
+```
+
+### Run container container:
+
+Download docker image:
+
+```shell
+docker pull solopcloud/adempiere-site
+```
+
+Run the docker container
+```shell
+docker run -it -d \
+	--name adempiere-site \
+	-p 80:80 \
+	solopcloud/adempiere-site
+```
+
+### Build docker image (for development only):
+First compile output files.
+``` bash
+# Install packages.
+pnpm install --frozen-lockfile
+
+# build dist files
+pnpm run build:vite
+```
+
+Build docker image (for development only):
+```shell
+docker build -t solopcloud/adempiere-site:dev -f ./build-docker/development.Dockerfile .
+```
