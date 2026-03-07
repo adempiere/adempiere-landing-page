@@ -10,6 +10,84 @@ The collection includes a number of books covering the main topics of:
 
 - Functional Guide (**Generated automatically from ADempiere**)
 
+---
+
+## 🎨 Customization Guide
+
+This landing page can be customized for your organization's needs. Here's how:
+
+### 1. Content Customization
+
+**Main content files are located in:**
+```
+src/
+├── .vuepress/          # VuePress configuration
+│   ├── config.ts       # Site configuration (title, description, etc.)
+│   ├── navbar/         # Navigation bar items
+│   └── sidebar/        # Sidebar configuration
+├── README.md           # Home page content
+└── [other-pages]/      # Additional pages
+```
+
+**To customize:**
+- Edit `src/.vuepress/config.ts` to change site title, logo, and metadata
+- Modify `src/README.md` to change the home page content
+- Update navigation in `src/.vuepress/navbar/`
+- Adjust sidebar in `src/.vuepress/sidebar/`
+
+### 2. Branding
+
+**Change logo and favicon:**
+- Replace logo: `src/.vuepress/public/logo.png`
+- Replace favicon: `src/.vuepress/public/favicon.ico`
+
+**Update theme colors:**
+- Edit `src/.vuepress/styles/palette.scss` (if exists)
+- Or configure theme colors in `src/.vuepress/config.ts`
+
+### 3. Docker Image Customization
+
+**After making changes, rebuild:**
+
+```bash
+# 1. Install dependencies
+pnpm install --frozen-lockfile
+
+# 2. Build static files
+pnpm run build:vite
+
+# 3. Build your custom Docker image
+docker build -t your-org/adempiere-landing-page:latest \
+  -f ./build-docker/production-alpine.Dockerfile .
+
+# 4. Test locally
+docker run -p 80:80 your-org/adempiere-landing-page:latest
+```
+
+### 4. Publishing Your Custom Image
+
+**Option A: GitHub Container Registry (Recommended)**
+1. Fork this repository to your organization
+2. Update `.github/workflows/publish.yaml`
+3. Create a release to trigger automatic build
+4. Image will be published to `ghcr.io/your-org/adempiere-landing-page`
+
+**Option B: Docker Hub**
+1. Update workflow to use Docker Hub credentials
+2. Configure `DOCKER_USERNAME` and `DOCKER_TOKEN` secrets
+3. Create release to trigger build
+
+### 5. Integration with ADempiere UI Gateway
+
+**Update your gateway configuration:**
+
+```bash
+# In adempiere-ui-gateway/docker-compose/env_template.env
+ADEMPIERE_SITE_IMAGE="your-org/adempiere-landing-page:your-version"
+```
+
+---
+
 # More References
 
 - The official page is in: http://adempiere.io
